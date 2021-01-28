@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 public class Game 
 {
 	Font font1, font2;
-	ImageIcon image;
+	ImageIcon graphics, actionImage;
 	
 	public static void main(String[] args)
 	{
@@ -48,18 +48,24 @@ public class Game
 		imagePanel.setBackground(Color.black);
 		window.add(imagePanel);
 		
-		image = new ImageIcon(getClass().getClassLoader().getResource("doorFarLR.png"));
+		graphics = new ImageIcon(getClass().getClassLoader().getResource("doorFarLR.png"));
 		
 		JLabel imageLabel = new JLabel();
-		imageLabel.setIcon(image);
+		imageLabel.setIcon(graphics);
 		imagePanel.add(imageLabel);
 		
 		//--------------ACTION PANEL & LABEL--------------
 			//--displays dialogue, health bars for monster fights, etc.
 		JPanel actionPanel = new JPanel();
-		actionPanel.setBounds(10, 10, 1100, 760);
+		actionPanel.setBounds(1140, 10, 750, 760);
 		actionPanel.setBackground(Color.black);
 		window.add(actionPanel);
+		
+		actionImage = new ImageIcon(getClass().getClassLoader().getResource("actionPanel.png"));
+		
+		JLabel actionLabel = new JLabel();
+		actionLabel.setIcon(actionImage);
+		actionPanel.add(actionLabel);
 		
 		window.setVisible(true);
 	}
