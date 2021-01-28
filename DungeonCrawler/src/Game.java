@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 public class Game 
 {
 	Font font1, font2;
-	ImageIcon graphics, actionImage;
+	ImageIcon graphics, actionImage, statsImage, controlsImage;
 	
 	public static void main(String[] args)
 	{
@@ -67,6 +67,34 @@ public class Game
 		actionLabel.setIcon(actionImage);
 		actionPanel.add(actionLabel);
 		
+		//--------------STATS PANEL & LABEL--------------
+			//--displays stats (gold, xp, etc.)
+		JPanel statsPanel = new JPanel();
+		statsPanel.setBounds(10, 770, 1100, 260);
+		statsPanel.setBackground(Color.black);
+		window.add(statsPanel);
+		
+		statsImage = new ImageIcon(getClass().getClassLoader().getResource("statsPanel.png"));
+		
+		JLabel statsLabel = new JLabel();
+		statsLabel.setIcon(statsImage);
+		statsPanel.add(statsLabel);
+		
+		//--------------CONTROLS PANEL & LABEL--------------
+			//--displays controls
+		JPanel controlsPanel = new JPanel();
+		controlsPanel.setBounds(1140, 770, 750, 260);
+		controlsPanel.setBackground(Color.black);
+		window.add(controlsPanel);
+		
+		controlsImage = new ImageIcon(getClass().getClassLoader().getResource("controlsPanel.png"));
+		
+		JLabel controlsLabel = new JLabel();
+		controlsLabel.setIcon(controlsImage);
+		controlsPanel.add(controlsLabel);
+	
 		window.setVisible(true);
+		
+		
 	}
 }
