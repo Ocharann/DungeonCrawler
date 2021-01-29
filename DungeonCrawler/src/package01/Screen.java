@@ -10,11 +10,11 @@ import javax.swing.*;
 
 public class Screen 
 {
-	ImageIcon graphicsImage, actionImage, statsImage;
+	ImageIcon graphicsImage, actionImage, statsImage, controlsImage;
 	JFrame window;
-	JPanel titleNamePanel, startButtonPanel, graphicsPanel, actionPanel, statsPanel;
-	JLabel titleNameLabel, graphicsLabel, actionLabel, statsLabel;
-	JButton startButton;
+	JPanel titleNamePanel, startButtonPanel, graphicsPanel, actionPanel, statsPanel, controlsPanel, uPanel, ldrPanel;
+	JLabel titleNameLabel, graphicsLabel, actionLabel, statsLabel, controlsLabel;
+	JButton startButton, upButton, leftButton, downButton, rightButton;
 	Font titleFont = new Font("Courier", Font.PLAIN, 162);
 	Font font1 = new Font("Courier", Font.PLAIN, 52);
 	
@@ -61,6 +61,7 @@ public class Screen
 		graphicsLabel = new JLabel();
 		graphicsLabel.setIcon(graphicsImage);
 		graphicsPanel.add(graphicsLabel);
+		graphicsPanel.setVisible(false);
 		
 		//----------ACTION PANEL----------
 		actionPanel = new JPanel();
@@ -72,6 +73,7 @@ public class Screen
 		actionLabel = new JLabel();
 		actionLabel.setIcon(actionImage);
 		actionPanel.add(actionLabel);
+		actionPanel.setVisible(false);
 		
 		//----------STATS PANEL----------
 		statsPanel = new JPanel();
@@ -83,6 +85,61 @@ public class Screen
 		statsLabel = new JLabel();
 		statsLabel.setIcon(statsImage);
 		statsPanel.add(statsLabel);
+		statsPanel.setVisible(false);
+		
+		//----------CONTROLS PANEL----------
+		controlsPanel = new JPanel();
+		controlsPanel.setBounds(1140, 770, 750, 260);
+		controlsPanel.setBackground(Color.black);
+		
+		controlsImage = new ImageIcon(getClass().getClassLoader().getResource("controlsPanel.png"));
+		
+		controlsLabel = new JLabel();
+		controlsLabel.setIcon(controlsImage);
+		controlsPanel.add(controlsLabel);
+		controlsPanel.setVisible(false);
+
+		uPanel = new JPanel();
+		uPanel.setBounds(1220, 785, 70, 70);
+		uPanel.setBackground(Color.blue);
+		uPanel.setLayout(new GridLayout(1, 3));
+		uPanel.setOpaque(false);
+
+		upButton = new JButton();
+		upButton.setFocusPainted(false);
+		upButton.addActionListener(aHandler);
+		upButton.setActionCommand("Up");
+		upButton.setOpaque(false);
+		uPanel.add(upButton);
+		uPanel.setVisible(false);
+
+		ldrPanel = new JPanel();
+		ldrPanel.setBounds(1150, 855, 210, 70);
+		ldrPanel.setBackground(Color.blue);
+		ldrPanel.setLayout(new GridLayout(1, 3));
+		ldrPanel.setOpaque(false);
+
+		leftButton = new JButton();
+		leftButton.setFocusPainted(false);
+		leftButton.addActionListener(aHandler);
+		leftButton.setActionCommand("Left");
+		leftButton.setOpaque(false);
+		ldrPanel.add(leftButton);
+
+		downButton = new JButton();
+		downButton.setFocusPainted(false);
+		downButton.addActionListener(aHandler);
+		downButton.setActionCommand("Down");
+		downButton.setOpaque(false);
+		ldrPanel.add(downButton);
+
+		rightButton = new JButton();
+		rightButton.setFocusPainted(false);
+		rightButton.addActionListener(aHandler);
+		rightButton.setActionCommand("Right");
+		rightButton.setOpaque(false);
+		ldrPanel.add(rightButton);
+		ldrPanel.setVisible(false);
 		
 		//----------ADD TO WINDOW(1)----------
 		window.add(titleNamePanel);
@@ -90,6 +147,9 @@ public class Screen
 		window.add(graphicsPanel);
 		window.add(actionPanel);
 		window.add(statsPanel);
+		window.add(controlsPanel);
+		window.add(uPanel);
+		window.add(ldrPanel);
 		
 		window.setVisible(true);
 	}

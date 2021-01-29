@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 public class Game 
 {
-	ActionHandler aHandler = new ActionHandler(this);
 	Screen s = new Screen();
+	ActionHandler aHandler = new ActionHandler(this, s);
 	VisibilityManager vm = new VisibilityManager(s);
 	
 	public static void main(String[] args)

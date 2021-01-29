@@ -19,6 +19,9 @@ public class VisibilityManager
 		s.graphicsPanel.setVisible(false);
 		s.actionPanel.setVisible(false);
 		s.statsPanel.setVisible(false);
+		s.controlsPanel.setVisible(false);
+		s.uPanel.setVisible(false);
+		s.ldrPanel.setVisible(false);
 	}
 	
 	public void titleToDungeon()
@@ -31,5 +34,8 @@ public class VisibilityManager
 		s.graphicsPanel.setVisible(true);
 		s.actionPanel.setVisible(true);
 		s.statsPanel.setVisible(true);
+		s.controlsPanel.setVisible(true);
+		s.uPanel.setVisible(true);
+		s.ldrPanel.setVisible(true);
 	}
 }
